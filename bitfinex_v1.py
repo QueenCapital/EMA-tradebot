@@ -556,10 +556,3 @@ class BitfinexClient(object):
                   return ''
 
 
-
-
-
-print BitfinexClient().transferWallet('exchange', 'trading', '600.0', 'USD')
-print BitfinexClient().getWalletBalances()
-
-print BitfinexClient().newOrder('btcusd', '0.01', '600', 'buy', 'market')
