@@ -162,7 +162,7 @@ class BitfinexClient(object):
                 m = self._m(payload)
                 headers = self._headers(payload_json, m)
 
-                r = requests.get(self.BASE_URL + path, data={}, headers=headers)
+                r = requests.post(self.BASE_URL + path, data={}, headers=headers)
                 if r.status_code == 200:
                   return r.json()
                 else:
@@ -184,7 +184,7 @@ class BitfinexClient(object):
                 m = self._m(payload)
                 headers = self._headers(payload_json, m)
 
-                r = requests.get(self.BASE_URL + path, data={}, headers=headers)
+                r = requests.post(self.BASE_URL + path, data={}, headers=headers)
                 if r.status_code == 200:
                   return r.json()
                 else:
@@ -208,7 +208,7 @@ class BitfinexClient(object):
                 m = self._m(payload)
                 headers = self._headers(payload_json, m)
 
-                r = requests.get(self.BASE_URL + path, data={}, headers=headers)
+                r = requests.post(self.BASE_URL + path, data={}, headers=headers)
                 if r.status_code == 200:
                   return r.json()
                 else:
@@ -230,7 +230,7 @@ class BitfinexClient(object):
                 m = self._m(payload)
                 headers = self._headers(payload_json, m)
 
-                r = requests.get(self.BASE_URL + path, data={}, headers=headers)
+                r = requests.post(self.BASE_URL + path, data={}, headers=headers)
                 if r.status_code == 200:
                   return r.json()
                 else:
@@ -252,7 +252,7 @@ class BitfinexClient(object):
                 m = self._m(payload)
                 headers = self._headers(payload_json, m)
 
-                r = requests.get(self.BASE_URL + path, data={}, headers=headers)
+                r = requests.post(self.BASE_URL + path, data={}, headers=headers)
                 if r.status_code == 200:
                   return r.json()
                 else:
@@ -274,7 +274,7 @@ class BitfinexClient(object):
                 m = self._m(payload)
                 headers = self._headers(payload_json, m)
 
-                r = requests.get(self.BASE_URL + path, data={}, headers=headers)
+                r = requests.post(self.BASE_URL + path, data={}, headers=headers)
                 if r.status_code == 200:
                   return r.json()
                 else:
@@ -300,7 +300,7 @@ class BitfinexClient(object):
                 m = self._m(payload)
                 headers = self._headers(payload_json, m)
 
-                r = requests.get(self.BASE_URL + path, data={}, headers=headers)
+                r = requests.post(self.BASE_URL + path, data={}, headers=headers)
 
                 if r.status_code == 200:
                   return r.json()
@@ -336,7 +336,7 @@ class BitfinexClient(object):
 
                 print headers
 
-                r = requests.get(self.BASE_URL + path, data={}, headers=headers)
+                r = requests.post(self.BASE_URL + path, data={}, headers=headers)
                 if r.status_code == 200:
                         return r.json()
                 else:
@@ -362,7 +362,7 @@ class BitfinexClient(object):
                 m = self._m(payload)
                 headers = self._headers(payload_json, m)
 
-                r = requests.get(self.BASE_URL + path, data={}, headers=headers)
+                r = requests.post(self.BASE_URL + path, data={}, headers=headers)
                 if r.status_code == 200:
                   return r.json()
                 else:
@@ -384,7 +384,7 @@ class BitfinexClient(object):
                 m = self._m(payload)
                 headers = self._headers(payload_json, m)
 
-                r = requests.get(self.BASE_URL + path, data={}, headers=headers)
+                r = requests.post(self.BASE_URL + path, data={}, headers=headers)
                 if r.status_code == 200:
                   return r.json()
                 else:
@@ -407,7 +407,7 @@ class BitfinexClient(object):
                 m = self._m(payload)
                 headers = self._headers(payload_json, m)
 
-                r = requests.get(self.BASE_URL + path, data={}, headers=headers)
+                r = requests.post(self.BASE_URL + path, data={}, headers=headers)
                 if r.status_code == 200:
                   return r.json()
                 else:
@@ -429,7 +429,7 @@ class BitfinexClient(object):
                 m = self._m(payload)
                 headers = self._headers(payload_json, m)
 
-                r = requests.get(self.BASE_URL + path, data={}, headers=headers)
+                r = requests.post(self.BASE_URL + path, data={}, headers=headers)
                 if r.status_code == 200:
                   return r.json()
                 else:
@@ -452,7 +452,7 @@ class BitfinexClient(object):
                 m = self._m(payload)
                 headers = self._headers(payload_json, m)
 
-                r = requests.get(self.BASE_URL + path, data={}, headers=headers)
+                r = requests.post(self.BASE_URL + path, data={}, headers=headers)
                 if r.status_code == 200:
                   return r.json()
                 else:
@@ -475,7 +475,7 @@ class BitfinexClient(object):
                 m = self._m(payload)
                 headers = self._headers(payload_json, m)
 
-                r = requests.get(self.BASE_URL + path, data={}, headers=headers)
+                r = requests.post(self.BASE_URL + path, data={}, headers=headers)
                 if r.status_code == 200:
                   return r.json()
                 else:
@@ -500,7 +500,7 @@ class BitfinexClient(object):
                 m = self._m(payload)
                 headers = self._headers(payload_json, m)
 
-                r = requests.get(self.BASE_URL + path, data={}, headers=headers)
+                r = requests.post(self.BASE_URL + path, data={}, headers=headers)
                 if r.status_code == 200:
                   return r.json()
                 else:
@@ -524,7 +524,7 @@ class BitfinexClient(object):
                 m = self._m(payload)
                 headers = self._headers(payload_json, m)
 
-                r = requests.get(self.BASE_URL + path, data={}, headers=headers)
+                r = requests.post(self.BASE_URL + path, data={}, headers=headers)
                 if r.status_code == 200:
                   return r.json()
                 else:
@@ -547,12 +547,14 @@ class BitfinexClient(object):
                 m = self._m(payload)
                 headers = self._headers(payload_json, m)
 
-                r = requests.get(self.BASE_URL + path, data={}, headers=headers)
+                r = requests.post(self.BASE_URL + path, data={}, headers=headers)
                 if r.status_code == 200:
                   return r.json()
                 else:
                   print r.status_code
                   print r.text
                   return ''
+
+
 
 
