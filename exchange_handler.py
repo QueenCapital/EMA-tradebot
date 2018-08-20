@@ -9,7 +9,9 @@ def getWalletBalances(exchange, wallet_type, currency):
         if exchange == 'bitfinexv1':
                 wallets = bitfinex_v1.BitfinexClient().getWalletBalances()
         for wallet in wallets:
-                if wallet['type'] == wallet_type and wallet['currency'] == currency:
+                if wallet_type == 'all' and currency == 'all':
+                        wallet_balance = wallets
+                elif wallet['type'] == wallet_type and wallet['currency'] == currency:
                         wallet_balance = wallet['available']
         return wallet_balance
 
@@ -34,7 +36,15 @@ def transferWallet(exchange, from_type, to_type, amount, currency):
                 transfer = bitfinex_v1.BitfinexClient().transferWallet(from_type, to_type, amount, currency)
         return transfer
 
+#returns BTC to Exchange wallet, closes position
 def claimPosition(exchange, xchangeID, amount):
         if exchange == 'bitfinexv1':
                 claim = bitfinex_v1.BitfinexClient().claimPosition(xchangeID, amount)
         return claim
+
+def getPastTrades(exchange, symbol):
+        if exchange == 'bitfinexv1':
+                past_trades  = bitfinex_v1.BitfinexClient().getPastTrades(symbol)
+        return past_trades
+
+
