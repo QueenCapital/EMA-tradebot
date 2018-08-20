@@ -140,7 +140,7 @@ class BitfinexClient(object):
                         'X-BFX-APIKEY':self.KEY,
                         'X-BFX-PAYLOAD':base64.b64encode(bytes(payload_json)),
                         'X-BFX-SIGNATURE': m
-                }   
+                }
             return headers
 
         def _m(self, payload):
@@ -289,7 +289,7 @@ class BitfinexClient(object):
                         'request':'/v1/transfer',
                         'nonce':nonce,
                         'options':{},
-                        'amount':amount,
+                        'amount':str(amount),
                         'walletfrom':walletfrom,
                         'walletto':walletto,
                         'currency':currency
@@ -309,43 +309,36 @@ class BitfinexClient(object):
                   print r.text
                   return ''
 
-        def newOrder(self, symbol, amount, price, side, type):
+        def newOrder(self, symbol, amount, price, side, order_type):
                 nonce = self._nonce()
                 path = '/v1/order/new'
                 payloadObject = {
                         'request':'/v1/order/new',
                         'nonce':nonce,
-                        'options':{
+                        'options':{},
                         'symbol':symbol,
-                        'amount':amount,
-                        'price':price,
+                        'amount':str(amount),
+                        'price':str(price),
                         'exchange':'bitfinex',
                         'side':side,
-                        'type':type}
+                        'type':order_type
                 }
                 payload_json = json.dumps(payloadObject)
                 #payload = base64.b64encode(bytes(payload_json))
                 payload = base64.standard_b64encode(payload_json.encode('utf8'))
-                print payload_json
-                print('\n')
-                print payload
-                print ('\n')
 
                 m = self._m(payload)
                 headers = self._headers(payload_json, m)
 
-                print headers
-
                 r = requests.post(self.BASE_URL + path, data={}, headers=headers)
                 if r.status_code == 200:
-                        return r.json()
+                    print r.text
+                    return r.json()
                 else:
-
                         print r
                         print r.status_code
                         print r.text
                         return ''
-
 
         def cancelOrder(self, id):
                 nonce = self._nonce()
@@ -483,6 +476,33 @@ class BitfinexClient(object):
                   print r.text
                   return ''
 
+        def claimPosition(self, xchangeID, amount):
+                nonce = self._nonce()
+                path = '/v1/position/claim'
+                payloadObject = {
+                        'request':'/v1/position/claim',
+                        'nonce':nonce,
+                        'options':{},
+                        'position_id':int(xchangeID),
+                        'amount':str(amount)
+                }
+                payload_json = json.dumps(payloadObject)
+                payload = base64.b64encode(bytes(payload_json))
+
+                m = self._m(payload)
+                headers = self._headers(payload_json, m)
+
+                r = requests.post(self.BASE_URL + path, data={}, headers=headers)
+                if r.status_code == 200:
+                    return r.json()
+                    print r.text
+                else:
+                  print r.status_code
+                  print r.text
+                  return ''
+
+
+
 
 
         def getPastTrades(self, symbol):
@@ -491,8 +511,9 @@ class BitfinexClient(object):
                 payloadObject = {
                         'request':'/v1/mytrades',
                         'nonce':nonce,
-                        'options':{
-                        'symbol':symbol}
+                        'options':{},
+                        'symbol':symbol,
+                        'timestamp':'1534348800'
                 }
                 payload_json = json.dumps(payloadObject)
                 payload = base64.b64encode(bytes(payload_json))
@@ -554,7 +575,3 @@ class BitfinexClient(object):
                   print r.status_code
                   print r.text
                   return ''
-
-
-
-
